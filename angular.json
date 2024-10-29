@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-p2-directives"
+    }
+  },
+  "defaultProject": "angular-p2-directives",
+  "cli": {
+    "analytics": false
+  }
 }
