@@ -1,3 +1,45 @@
+<h1>Directives</h1>
 
-<h1>App Component</h1>
+<h2>1. Structural Directives</h2>
+<!-- *ngIf -->
+<p *ngIf="isActive">Your Status is Activated</p>   
+<!-- *ngIf, else -->
+<div>
+    <p *ngIf="isTrue; else isFalse ">This paragraph will be shown if condition will be true</p>  
+    <ng-template #isFalse><p>Error in displaying message</p></ng-template>
+</div>
+ <!-- *ngIf, then, else -->
+<div *ngIf="isActivated; then inProgress; else notActivated;"></div> 
+    <ng-template #inProgress><p>Your Acount is in progress</p></ng-template>
+    <ng-template #notActivated><p>Your Acount is not activated</p></ng-template>
+
+ <!-- [ngSwitch], *ngSwitchCase, *ngSwitchDefault-->
+  <div [ngSwitch]="status">
+    <p *ngSwitchCase="1">Your Account has Initiated</p>
+    <p *ngSwitchCase="2">Your Account is in Progress</p>
+    <p *ngSwitchCase="3">Your Account has been opend</p>
+    <p *ngSwitchCase="4">Your Account has been activated sucsessfully</p>
+    <p *ngSwitchDefault>Please contact your POC</p>
+  </div>
+
+   <!-- *ngFor-->
+<table class="table">
+    <tr *ngFor="let items of users">
+        <td>{{items.id}}</td>
+        <td>{{items.name}}</td>
+        <td>{{items.age}}</td>
+        <td>{{items.city}}</td>
+        <td>{{items.occupation}}</td>
+        <td>{{items.hobbies}}</td>
+    </tr>
+</table>
+<h2>2. Attributes Directives</h2>
+<!--[ngStyle]-->
+<h1 [ngStyle]="{'color':'blue'}">ngStyle in single element</h1>
+<h1 [ngStyle]="{'color': container1}">ngStyle in single element using variable</h1>
+
+<!--[ngClass]-->
+<h1 [ngClass]="container2">ngClass in single element using single variable</h1>
+<h1 [ngClass]="[change1, change2]">ngClass in single element using double variable</h1>
+<h1 [ngClass]="{'c1': true, 'c2' : false}">ngClass in single element using double variables having boolean conditions</h1>
 <router-outlet></router-outlet>
